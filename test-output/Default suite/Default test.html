@@ -1,0 +1,399 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>64/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Oct 15 08:26:04 EDT 2019</td>
+</tr>
+<tr><td>Total time:</td><td>469 seconds (469384 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='application.test.TCExecution.Check_left_Side_Quick_link()'><b>Check_left_Side_Quick_link</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Enter_UserName_And_Password()'><b>Enter_UserName_And_Password</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>30</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Enter_showcode_and_click_the_showcode_link()'><b>Enter_showcode_and_click_the_showcode_link</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>11</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Left_Side_Customer_Search()'><b>Left_Side_Customer_Search</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>6</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_Back_to_Search_Criteria()'><b>Verify_Back_to_Search_Criteria</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_CustomerSearch_FristName_LastName()'><b>Verify_CustomerSearch_FristName_LastName</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_Customer_Edit_page()'><b>Verify_Customer_Edit_page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_Edit_profile_First_last_name_change()'><b>Verify_Edit_profile_First_last_name_change</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_Home_Page()'><b>Verify_Home_Page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>8</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_Reset_Password()'><b>Verify_Reset_Password</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.Verify_invalid_Name_Search()'><b>Verify_invalid_Name_Search</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Housing()'><b>verify_Analytics_Housing</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Housing_Maps()'><b>verify_Analytics_Housing_Maps</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Housing_Overview()'><b>verify_Analytics_Housing_Overview</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Housing_Pacing()'><b>verify_Analytics_Housing_Pacing</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Email_Link()'><b>verify_Analytics_Reg_Email_Link</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Generate_Link()'><b>verify_Analytics_Reg_Generate_Link</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Maps()'><b>verify_Analytics_Reg_Maps</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>6</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Overview()'><b>verify_Analytics_Reg_Overview</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Pacing()'><b>verify_Analytics_Reg_Pacing</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Reg_Send_Email()'><b>verify_Analytics_Reg_Send_Email</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Session()'><b>verify_Analytics_Session</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Session_Maps()'><b>verify_Analytics_Session_Maps</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Session_Overview()'><b>verify_Analytics_Session_Overview</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Session_Pacing()'><b>verify_Analytics_Session_Pacing</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified()'><b>verify_Analytics_Unified</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Maps()'><b>verify_Analytics_Unified_Maps</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Overview()'><b>verify_Analytics_Unified_Overview</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Pacing()'><b>verify_Analytics_Unified_Pacing</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_RegType_Export()'><b>verify_Analytics_Unified_RegType_Export</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>1</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Tour_Close()'><b>verify_Analytics_Unified_Tour_Close</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Tour_Link()'><b>verify_Analytics_Unified_Tour_Link</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_Unified_Tour_Next()'><b>verify_Analytics_Unified_Tour_Next</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Analytics_page()'><b>verify_Analytics_page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Auto_login()'><b>verify_Auto_login</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>25</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_BackTo_Manage()'><b>verify_BackTo_Manage</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Badging_Page()'><b>verify_Badging_Page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Credentail_report()'><b>verify_Credentail_report</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>1</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Customer_Details_page()'><b>verify_Customer_Details_page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>15</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_EmailID_Body_Send_change_Request()'><b>verify_EmailID_Body_Send_change_Request</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_BoostPage()'><b>verify_ExSIGHT_BoostPage</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_CampaignPage()'><b>verify_ExSIGHT_CampaignPage</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_CampaignPage_Upload_Save()'><b>verify_ExSIGHT_CampaignPage_Upload_Save</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_LeadPage()'><b>verify_ExSIGHT_LeadPage</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>0</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_Page()'><b>verify_ExSIGHT_Page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_Results()'><b>verify_ExSIGHT_Results</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_Scheduled_Campaigns()'><b>verify_ExSIGHT_Scheduled_Campaigns</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExSIGHT_TrafficBoost_Save()'><b>verify_ExSIGHT_TrafficBoost_Save</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_ExcelFormat()'><b>verify_ExcelFormat</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>1</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_HotelInventoryReport()'><b>verify_HotelInventoryReport</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>6</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_LogOut()'><b>verify_LogOut</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Preview_Confirm()'><b>verify_Preview_Confirm</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>7</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_RegType_Report()'><b>verify_RegType_Report</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Report_page()'><b>verify_Report_page</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>5</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Report_templates_Count()'><b>verify_Report_templates_Count</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>7</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Request_a_Change()'><b>verify_Request_a_Change</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_SaveAs()'><b>verify_SaveAs</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>6</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Saved_Report()'><b>verify_Saved_Report</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_Valid_Name_Search()'><b>verify_Valid_Name_Search</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_all_accordions()'><b>verify_all_accordions</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>4</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_email_icon()'><b>verify_email_icon</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>8</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_email_preview_close()'><b>verify_email_preview_close</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_preview_close()'><b>verify_preview_close</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>2</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+<tr>
+<td title='application.test.TCExecution.verify_reset_password()'><b>verify_reset_password</b><br>Test class: application.test.TCExecution</td>
+<td></td>
+<td>3</td>
+<td>application.test.TCExecution@69a3d1d</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="14" total="78" passed="64">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="469384" started-at="2019-10-15T12:26:04Z" finished-at="2019-10-15T12:33:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="469384" started-at="2019-10-15T12:26:04Z" finished-at="2019-10-15T12:33:53Z">
+      <class name="application.test.TCExecution">
+        <test-method status="PASS" signature="getBrowser()[pri:0, instance:application.test.TCExecution@69a3d1d]" name="getBrowser" is-config="true" duration-ms="7917" started-at="2019-10-15T12:25:56Z" finished-at="2019-10-15T12:26:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBrowser -->
+        <test-method status="PASS" signature="Enter_UserName_And_Password()[pri:0, instance:application.test.TCExecution@69a3d1d]" name="Enter_UserName_And_Password" duration-ms="30794" started-at="2019-10-15T12:26:04Z" finished-at="2019-10-15T12:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Enter_UserName_And_Password -->
+        <test-method status="PASS" signature="Enter_showcode_and_click_the_showcode_link()[pri:1, instance:application.test.TCExecution@69a3d1d]" name="Enter_showcode_and_click_the_showcode_link" duration-ms="11870" started-at="2019-10-15T12:26:40Z" finished-at="2019-10-15T12:26:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Enter_showcode_and_click_the_showcode_link -->
+        <test-method status="PASS" signature="Check_left_Side_Quick_link()[pri:2, instance:application.test.TCExecution@69a3d1d]" name="Check_left_Side_Quick_link" duration-ms="4600" started-at="2019-10-15T12:26:54Z" finished-at="2019-10-15T12:26:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Check_left_Side_Quick_link -->
+        <test-method status="PASS" signature="Left_Side_Customer_Search()[pri:3, instance:application.test.TCExecution@69a3d1d]" name="Left_Side_Customer_Search" duration-ms="6333" started-at="2019-10-15T12:27:01Z" finished-at="2019-10-15T12:27:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Left_Side_Customer_Search -->
+        <test-method status="PASS" signature="Verify_Home_Page()[pri:4, instance:application.test.TCExecution@69a3d1d]" name="Verify_Home_Page" duration-ms="8635" started-at="2019-10-15T12:27:10Z" finished-at="2019-10-15T12:27:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Home_Page -->
+        <test-method status="PASS" signature="Verify_CustomerSearch_FristName_LastName()[pri:5, instance:application.test.TCExecution@69a3d1d]" name="Verify_CustomerSearch_FristName_LastName" duration-ms="5366" started-at="2019-10-15T12:27:20Z" finished-at="2019-10-15T12:27:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_CustomerSearch_FristName_LastName -->
+        <test-method status="PASS" signature="Verify_Back_to_Search_Criteria()[pri:6, instance:application.test.TCExecution@69a3d1d]" name="Verify_Back_to_Search_Criteria" duration-ms="3190" started-at="2019-10-15T12:27:27Z" finished-at="2019-10-15T12:27:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Back_to_Search_Criteria -->
+        <test-method status="PASS" signature="Verify_invalid_Name_Search()[pri:7, instance:application.test.TCExecution@69a3d1d]" name="Verify_invalid_Name_Search" duration-ms="3691" started-at="2019-10-15T12:27:33Z" finished-at="2019-10-15T12:27:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_invalid_Name_Search -->
+        <test-method status="PASS" signature="verify_Valid_Name_Search()[pri:8, instance:application.test.TCExecution@69a3d1d]" name="verify_Valid_Name_Search" duration-ms="4035" started-at="2019-10-15T12:27:38Z" finished-at="2019-10-15T12:27:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Valid_Name_Search -->
+        <test-method status="PASS" signature="verify_Customer_Details_page()[pri:9, instance:application.test.TCExecution@69a3d1d]" name="verify_Customer_Details_page" duration-ms="15624" started-at="2019-10-15T12:27:44Z" finished-at="2019-10-15T12:27:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Customer_Details_page -->
+        <test-method status="PASS" signature="Verify_Customer_Edit_page()[pri:10, instance:application.test.TCExecution@69a3d1d]" name="Verify_Customer_Edit_page" duration-ms="3251" started-at="2019-10-15T12:28:01Z" finished-at="2019-10-15T12:28:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Customer_Edit_page -->
+        <test-method status="PASS" signature="Verify_Edit_profile_First_last_name_change()[pri:11, instance:application.test.TCExecution@69a3d1d]" name="Verify_Edit_profile_First_last_name_change" duration-ms="4304" started-at="2019-10-15T12:28:06Z" depends-on-methods="application.test.TCExecution.Verify_Customer_Edit_page" finished-at="2019-10-15T12:28:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Edit_profile_First_last_name_change -->
+        <test-method status="PASS" signature="verify_Auto_login()[pri:12, instance:application.test.TCExecution@69a3d1d]" name="verify_Auto_login" duration-ms="25608" started-at="2019-10-15T12:28:13Z" depends-on-methods="application.test.TCExecution.Verify_Edit_profile_First_last_name_change" finished-at="2019-10-15T12:28:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Auto_login -->
+        <test-method status="PASS" signature="Verify_Reset_Password()[pri:13, instance:application.test.TCExecution@69a3d1d]" name="Verify_Reset_Password" duration-ms="3144" started-at="2019-10-15T12:28:40Z" finished-at="2019-10-15T12:28:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Verify_Reset_Password -->
+        <test-method status="PASS" signature="verify_Request_a_Change()[pri:14, instance:application.test.TCExecution@69a3d1d]" name="verify_Request_a_Change" duration-ms="2642" started-at="2019-10-15T12:28:45Z" finished-at="2019-10-15T12:28:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Request_a_Change -->
+        <test-method status="PASS" signature="verify_EmailID_Body_Send_change_Request()[pri:15, instance:application.test.TCExecution@69a3d1d]" name="verify_EmailID_Body_Send_change_Request" duration-ms="4165" started-at="2019-10-15T12:28:49Z" depends-on-methods="application.test.TCExecution.verify_Request_a_Change" finished-at="2019-10-15T12:28:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_EmailID_Body_Send_change_Request -->
+        <test-method status="PASS" signature="verify_Preview_Confirm()[pri:16, instance:application.test.TCExecution@69a3d1d]" name="verify_Preview_Confirm" duration-ms="7659" started-at="2019-10-15T12:28:55Z" finished-at="2019-10-15T12:29:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Preview_Confirm -->
+        <test-method status="PASS" signature="verify_preview_close()[pri:17, instance:application.test.TCExecution@69a3d1d]" name="verify_preview_close" duration-ms="2286" started-at="2019-10-15T12:29:05Z" depends-on-methods="application.test.TCExecution.verify_Preview_Confirm" finished-at="2019-10-15T12:29:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_preview_close -->
+        <test-method status="PASS" signature="verify_all_accordions()[pri:18, instance:application.test.TCExecution@69a3d1d]" name="verify_all_accordions" duration-ms="4638" started-at="2019-10-15T12:29:09Z" finished-at="2019-10-15T12:29:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_all_accordions -->
+        <test-method status="PASS" signature="verify_email_icon()[pri:24, instance:application.test.TCExecution@69a3d1d]" name="verify_email_icon" duration-ms="8427" started-at="2019-10-15T12:29:16Z" finished-at="2019-10-15T12:29:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_email_icon -->
+        <test-method status="PASS" signature="verify_email_preview_close()[pri:25, instance:application.test.TCExecution@69a3d1d]" name="verify_email_preview_close" duration-ms="2291" started-at="2019-10-15T12:29:26Z" depends-on-methods="application.test.TCExecution.verify_email_icon" finished-at="2019-10-15T12:29:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_email_preview_close -->
+        <test-method status="PASS" signature="verify_reset_password()[pri:26, instance:application.test.TCExecution@69a3d1d]" name="verify_reset_password" duration-ms="3299" started-at="2019-10-15T12:29:30Z" finished-at="2019-10-15T12:29:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_reset_password -->
+        <test-method status="PASS" signature="verify_Report_page()[pri:27, instance:application.test.TCExecution@69a3d1d]" name="verify_Report_page" duration-ms="5165" started-at="2019-10-15T12:29:35Z" finished-at="2019-10-15T12:29:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Report_page -->
+        <test-method status="PASS" signature="verify_Report_templates_Count()[pri:28, instance:application.test.TCExecution@69a3d1d]" name="verify_Report_templates_Count" duration-ms="7098" started-at="2019-10-15T12:29:43Z" finished-at="2019-10-15T12:29:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Report_templates_Count -->
+        <test-method status="PASS" signature="verify_RegType_Report()[pri:29, instance:application.test.TCExecution@69a3d1d]" name="verify_RegType_Report" duration-ms="5434" started-at="2019-10-15T12:29:51Z" finished-at="2019-10-15T12:29:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_RegType_Report -->
+        <test-method status="PASS" signature="verify_ExcelFormat()[pri:30, instance:application.test.TCExecution@69a3d1d]" name="verify_ExcelFormat" duration-ms="1238" started-at="2019-10-15T12:29:59Z" finished-at="2019-10-15T12:30:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExcelFormat -->
+        <test-method status="PASS" signature="verify_SaveAs()[pri:31, instance:application.test.TCExecution@69a3d1d]" name="verify_SaveAs" duration-ms="6498" started-at="2019-10-15T12:30:03Z" finished-at="2019-10-15T12:30:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_SaveAs -->
+        <test-method status="PASS" signature="verify_BackTo_Manage()[pri:32, instance:application.test.TCExecution@69a3d1d]" name="verify_BackTo_Manage" duration-ms="2313" started-at="2019-10-15T12:30:11Z" depends-on-methods="application.test.TCExecution.verify_SaveAs" finished-at="2019-10-15T12:30:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_BackTo_Manage -->
+        <test-method status="PASS" signature="verify_Saved_Report()[pri:33, instance:application.test.TCExecution@69a3d1d]" name="verify_Saved_Report" duration-ms="4625" started-at="2019-10-15T12:30:15Z" finished-at="2019-10-15T12:30:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Saved_Report -->
+        <test-method status="PASS" signature="verify_HotelInventoryReport()[pri:34, instance:application.test.TCExecution@69a3d1d]" name="verify_HotelInventoryReport" duration-ms="6381" started-at="2019-10-15T12:30:21Z" finished-at="2019-10-15T12:30:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_HotelInventoryReport -->
+        <test-method status="PASS" signature="verify_Badging_Page()[pri:35, instance:application.test.TCExecution@69a3d1d]" name="verify_Badging_Page" duration-ms="5561" started-at="2019-10-15T12:30:29Z" finished-at="2019-10-15T12:30:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Badging_Page -->
+        <test-method status="PASS" signature="verify_Credentail_report()[pri:36, instance:application.test.TCExecution@69a3d1d]" name="verify_Credentail_report" duration-ms="1931" started-at="2019-10-15T12:30:37Z" depends-on-methods="application.test.TCExecution.verify_Badging_Page" finished-at="2019-10-15T12:30:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Credentail_report -->
+        <test-method status="PASS" signature="verify_Analytics_page()[pri:37, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_page" duration-ms="4875" started-at="2019-10-15T12:30:41Z" finished-at="2019-10-15T12:30:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_page -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Overview()[pri:38, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Overview" duration-ms="4722" started-at="2019-10-15T12:30:47Z" finished-at="2019-10-15T12:30:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Overview -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Pacing()[pri:40, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Pacing" duration-ms="4534" started-at="2019-10-15T12:30:54Z" finished-at="2019-10-15T12:30:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Pacing -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Maps()[pri:41, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Maps" duration-ms="6117" started-at="2019-10-15T12:31:00Z" finished-at="2019-10-15T12:31:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Maps -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Generate_Link()[pri:43, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Generate_Link" duration-ms="4466" started-at="2019-10-15T12:31:09Z" finished-at="2019-10-15T12:31:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Generate_Link -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Email_Link()[pri:44, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Email_Link" duration-ms="2396" started-at="2019-10-15T12:31:15Z" depends-on-methods="application.test.TCExecution.verify_Analytics_Reg_Generate_Link" finished-at="2019-10-15T12:31:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Email_Link -->
+        <test-method status="PASS" signature="verify_Analytics_Reg_Send_Email()[pri:45, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Reg_Send_Email" duration-ms="5753" started-at="2019-10-15T12:31:19Z" depends-on-methods="application.test.TCExecution.verify_Analytics_Reg_Email_Link" finished-at="2019-10-15T12:31:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Reg_Send_Email -->
+        <test-method status="PASS" signature="verify_Analytics_Session()[pri:46, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Session" duration-ms="4491" started-at="2019-10-15T12:31:27Z" finished-at="2019-10-15T12:31:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Session -->
+        <test-method status="PASS" signature="verify_Analytics_Session_Overview()[pri:47, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Session_Overview" duration-ms="4664" started-at="2019-10-15T12:31:33Z" finished-at="2019-10-15T12:31:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Session_Overview -->
+        <test-method status="PASS" signature="verify_Analytics_Session_Pacing()[pri:49, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Session_Pacing" duration-ms="4548" started-at="2019-10-15T12:31:39Z" finished-at="2019-10-15T12:31:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Session_Pacing -->
+        <test-method status="PASS" signature="verify_Analytics_Session_Maps()[pri:50, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Session_Maps" duration-ms="5832" started-at="2019-10-15T12:31:46Z" finished-at="2019-10-15T12:31:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Session_Maps -->
+        <test-method status="PASS" signature="verify_Analytics_Housing()[pri:52, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Housing" duration-ms="5079" started-at="2019-10-15T12:31:54Z" finished-at="2019-10-15T12:31:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Housing -->
+        <test-method status="PASS" signature="verify_Analytics_Housing_Overview()[pri:53, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Housing_Overview" duration-ms="4651" started-at="2019-10-15T12:32:00Z" finished-at="2019-10-15T12:32:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Housing_Overview -->
+        <test-method status="PASS" signature="verify_Analytics_Housing_Pacing()[pri:55, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Housing_Pacing" duration-ms="4921" started-at="2019-10-15T12:32:07Z" finished-at="2019-10-15T12:32:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Housing_Pacing -->
+        <test-method status="PASS" signature="verify_Analytics_Housing_Maps()[pri:56, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Housing_Maps" duration-ms="5493" started-at="2019-10-15T12:32:14Z" finished-at="2019-10-15T12:32:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Housing_Maps -->
+        <test-method status="PASS" signature="verify_Analytics_Unified()[pri:58, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified" duration-ms="5431" started-at="2019-10-15T12:32:21Z" finished-at="2019-10-15T12:32:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Overview()[pri:59, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Overview" duration-ms="4689" started-at="2019-10-15T12:32:28Z" finished-at="2019-10-15T12:32:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Overview -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Pacing()[pri:61, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Pacing" duration-ms="4423" started-at="2019-10-15T12:32:35Z" finished-at="2019-10-15T12:32:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Pacing -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Maps()[pri:62, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Maps" duration-ms="5715" started-at="2019-10-15T12:32:41Z" finished-at="2019-10-15T12:32:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Maps -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Tour_Link()[pri:64, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Tour_Link" duration-ms="5862" started-at="2019-10-15T12:32:49Z" finished-at="2019-10-15T12:32:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Tour_Link -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Tour_Next()[pri:65, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Tour_Next" duration-ms="2564" started-at="2019-10-15T12:32:57Z" finished-at="2019-10-15T12:33:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Tour_Next -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_Tour_Close()[pri:66, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_Tour_Close" duration-ms="2533" started-at="2019-10-15T12:33:01Z" finished-at="2019-10-15T12:33:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_Tour_Close -->
+        <test-method status="PASS" signature="verify_Analytics_Unified_RegType_Export()[pri:69, instance:application.test.TCExecution@69a3d1d]" name="verify_Analytics_Unified_RegType_Export" duration-ms="1126" started-at="2019-10-15T12:33:06Z" finished-at="2019-10-15T12:33:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_Analytics_Unified_RegType_Export -->
+        <test-method status="PASS" signature="verify_ExSIGHT_Page()[pri:70, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_Page" duration-ms="4752" started-at="2019-10-15T12:33:08Z" finished-at="2019-10-15T12:33:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_Page -->
+        <test-method status="PASS" signature="verify_ExSIGHT_LeadPage()[pri:71, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_LeadPage" duration-ms="461" started-at="2019-10-15T12:33:14Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_LeadPage -->
+        <test-method status="PASS" signature="verify_ExSIGHT_BoostPage()[pri:72, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_BoostPage" duration-ms="4429" started-at="2019-10-15T12:33:16Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_BoostPage -->
+        <test-method status="PASS" signature="verify_ExSIGHT_TrafficBoost_Save()[pri:73, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_TrafficBoost_Save" duration-ms="3071" started-at="2019-10-15T12:33:22Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_TrafficBoost_Save -->
+        <test-method status="PASS" signature="verify_ExSIGHT_CampaignPage()[pri:74, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_CampaignPage" duration-ms="3481" started-at="2019-10-15T12:33:27Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_CampaignPage -->
+        <test-method status="PASS" signature="verify_ExSIGHT_CampaignPage_Upload_Save()[pri:75, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_CampaignPage_Upload_Save" duration-ms="2959" started-at="2019-10-15T12:33:33Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_CampaignPage_Upload_Save -->
+        <test-method status="PASS" signature="verify_ExSIGHT_Scheduled_Campaigns()[pri:76, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_Scheduled_Campaigns" duration-ms="4210" started-at="2019-10-15T12:33:38Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_Scheduled_Campaigns -->
+        <test-method status="PASS" signature="verify_ExSIGHT_Results()[pri:77, instance:application.test.TCExecution@69a3d1d]" name="verify_ExSIGHT_Results" duration-ms="3370" started-at="2019-10-15T12:33:44Z" depends-on-methods="application.test.TCExecution.verify_ExSIGHT_Page" finished-at="2019-10-15T12:33:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_ExSIGHT_Results -->
+        <test-method status="PASS" signature="verify_LogOut()[pri:78, instance:application.test.TCExecution@69a3d1d]" name="verify_LogOut" duration-ms="2619" started-at="2019-10-15T12:33:49Z" finished-at="2019-10-15T12:33:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_LogOut -->
+      </class> <!-- application.test.TCExecution -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

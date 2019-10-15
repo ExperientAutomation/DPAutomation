@@ -1,0 +1,3361 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			ExtentReports Library 2.41.1 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+			Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+			Documentation: http://extentreports.relevantcodes.com 
+		-->
+
+		<meta charset='UTF-8' /> 
+		<meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+		<meta name='robots' content='noodp, noydir' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
+		<meta name='extentx' id='extentx' content='' />
+		
+		<title>
+				ExtentReports 2.0
+		</title>
+		
+		
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.css' type='text/css' rel='stylesheet' />
+		
+		<style>
+				
+            
+                
+            
+        
+		</style>
+	</head>
+	
+	
+	<body class='extent default standard hide-overflow'>
+		<!-- nav -->
+		<nav>
+			<div class='logo-container blue darken-2'>
+				<a class='logo-content' href='http://extentreports.relevantcodes.com'>
+					<span>ExtentReports</span>
+				</a>
+				<a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+			</div>
+			<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+				<li class='analysis waves-effect active'><a href='#!' class='test-view' onclick="_updateCurrentStage(0)"><i class='mdi-action-dashboard'></i>Test Details</a></li>
+				<li class='analysis waves-effect'>
+					<a href='#!' onclick="_updateCurrentStage(-1)" class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a>
+				</li>
+			</ul>
+			<span class='report-name'>Automation Report</span> <span class='report-headline'></span>
+			<ul class='right hide-on-med-and-down nav-right'>
+				<li class='theme-selector' alt='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");' title='Click to toggle dark theme. To enable by default, use js configuration $("body").addClass("dark");'>
+					<i class='mdi-hardware-desktop-windows'></i>
+				</li>
+				<li>
+					<span class='suite-started-time'>2019-10-15 08:33:54</span>
+				</li>
+				<li>
+					<span>v2.41.1</span>
+				</li>
+			</ul>
+		</nav>
+		<!-- /nav -->
+		
+		<!-- container -->
+		<div class='container'>
+			
+			<!-- dashboard -->
+			<div id='dashboard-view' class='row'>
+				<div class='time-totals'>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-tests'> 
+							<span class='panel-name'>Total Tests</span> 
+							<span class='total-tests'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6'>
+						<div class='card suite-total-steps'> 
+							<span class='panel-name'>Total Steps</span> 
+							<span class='total-steps'> <span class='panel-lead'></span> </span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-current'> 
+							<span class='panel-name'>Total Time Taken (Current Run)</span> 
+							<span class='suite-total-time-current-value panel-lead'>0h 7m 58s+859ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s12'>
+						<div class='card suite-total-time-overall'> 
+							<span class='panel-name'>Total Time Taken (Overall)</span> 
+							<span class='suite-total-time-overall-value panel-lead'>0h 7m 58s+859ms</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-start-time'>
+						<div class='card accent green-accent'> 
+							<span class='panel-name'>Start</span> 
+							<span class='panel-lead suite-started-time'>2019-10-15 08:25:55</span> 
+						</div> 
+					</div>
+					<div class='col l2 m4 s6 suite-end-time'>
+						<div class='card accent pink-accent'> 
+							<span class='panel-name'>End</span> 
+							<span class='panel-lead suite-ended-time'>2019-10-15 08:33:54</span> 
+						</div> 
+					</div>
+				</div>
+				<div class='charts'>
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Tests View</span>
+							</div> 
+							<div class='panel-setting modal-trigger test-count-setting right'>
+								<a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='test-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div> 
+					<div class='col s12 m6 l4 fh'> 
+						<div class='card-panel'> 
+							<div>
+								<span class='panel-name'>Steps View</span>
+							</div> 
+							<div class='panel-setting modal-trigger step-status-filter right'>
+								<a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+							</div> 
+							<div class='chart-box'>
+								<canvas class='text-centered' id='step-analysis'></canvas>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed </span>
+							</div> 
+							<div>
+								<span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+							</div> 
+						</div> 
+					</div>
+					<div class='col s12 m12 l4 fh'> 
+						<div class='card-panel'> 
+							<span class='panel-name'>Pass Percentage</span> 
+							<span class='pass-percentage panel-lead'></span> 
+							<div class='progress light-blue lighten-3'> 
+								<div class='determinate light-blue'></div> 
+							</div> 
+						</div> 
+					</div>
+				</div>
+				<div class='system-view'>
+					<div class='col l4 m12 s12'>
+						<div class='card-panel'>
+							<span class='label info outline right'>Environment</span>
+							<table>
+								<thead>
+									<tr>
+										<th>Param</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+										<tr>
+											<td>User Name</td>
+											<td>kulandasamyc</td>
+										</tr>
+										<tr>
+											<td>OS</td>
+											<td>Windows 7</td>
+										</tr>
+										<tr>
+											<td>Java Version</td>
+											<td>1.8.0_191</td>
+										</tr>
+										<tr>
+											<td>Host Name</td>
+											<td>KULANDASAMYC</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /dashboard -->
+			
+			<!-- tests -->
+			<div id='test-view' class='row _addedTable'>
+				<div class='col _addedCell1'>
+					<div class='contents'>
+						<div class='card-panel heading'>
+							<h5>Tests</h5>
+						</div>
+						<div class='card-panel filters'>
+							<div>
+								<a class='dropdown-button btn-floating btn-small waves-effect waves-light grey tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+									<i class='mdi-action-reorder'></i>
+								</a>
+								<ul id='tests-toggle' class='dropdown-content'>
+									<li class='pass'><a href='#!'>Pass</a></li>
+									<li class='fail'><a href='#!'>Fail</a></li>
+									<li class='skip'><a href='#!'>Skip</a></li>
+									<li class='divider'></li>
+									<li class='clear'><a href='#!'>Clear Filters</a></li>
+								</ul>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+									<i class='mdi-navigation-close'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light grey' id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+									<i class='mdi-action-track-changes'></i>
+								</a>
+							</div>
+							<div>
+								<a class='btn-floating btn-small waves-effect waves-light blue enabled' id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters'>
+									<i class='mdi-navigation-refresh'></i>
+								</a>
+							</div>
+							<div class='search' alt='Search Tests' title='Search Tests'>
+								<div class='input-field left'>
+									<input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+								</div>
+								<a href="#" class='btn-floating btn-small waves-effect waves-light grey'>
+									<i class='mdi-action-search'></i>
+								</a>
+							</div>
+						</div>
+						<div class='card-panel no-padding-h no-padding-v no-margin-v'>
+							<div class='wrapper'>
+								<ul id='test-collection' class='test-collection'>
+										<li class='collection-item test displayed active pass ' extentid='3b893e6c-3fd2-4944-9e53-db2ee6b60c90'>
+											<div class='test-head'>
+												<span class='test-name'>Enter_UserName_And_Password </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:26:04</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:07</td>
+																	<td class='step-details'></td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:07</td>
+																	<td class='step-details'></td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:26:34</td>
+																	<td class='step-details'>Choose a Show dropdown list popup displayed for the first-time.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='cf801fdd-0924-4e2b-b475-93f882dfaa74'>
+											<div class='test-head'>
+												<span class='test-name'>Enter_showcode_and_click_the_showcode_link </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:26:40</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:40</td>
+																	<td class='step-details'>Enter User Name and password, click on Login.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:40</td>
+																	<td class='step-details'>Choose a Show dropdown list popup should display for the first-time.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:26:52</td>
+																	<td class='step-details'>System displayed entered showcode and show Home with correct Chats and Graphs.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='f3bfe9e0-2515-4da2-bc38-151c60095fb8'>
+											<div class='test-head'>
+												<span class='test-name'>Check_left_Side_Quick_link </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:26:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:54</td>
+																	<td class='step-details'>Search field, enter the ShowCode and click on 'Contiue' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:26:54</td>
+																	<td class='step-details'>System should display entered showcode and show Home with correct Chats and Graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:26:59</td>
+																	<td class='step-details'>System navigated to corresponding page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c369f30f-63d9-48ff-a4db-c2de54f32dab'>
+											<div class='test-head'>
+												<span class='test-name'>Left_Side_Customer_Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:01</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:01</td>
+																	<td class='step-details'>Left side expand accordion and click all links.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:01</td>
+																	<td class='step-details'>System should navigate to corresponding page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:08</td>
+																	<td class='step-details'>System takes to Customer Search page and show all records.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c40b4924-1f76-4085-8e89-8ff3bd4d76c3'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_Home_Page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:10</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:10</td>
+																	<td class='step-details'>Left Side Customer Search frame, without entering values click on Search button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:10</td>
+																	<td class='step-details'>System should take to Customer Search page and show all records.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:18</td>
+																	<td class='step-details'>System takes back to Dashboard page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='94cb21b1-6275-4cdf-a0ec-f92d9179a614'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_CustomerSearch_FristName_LastName </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:20</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:20</td>
+																	<td class='step-details'>Click on Home tab on top.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:20</td>
+																	<td class='step-details'>System should take back to Dashboard page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:25</td>
+																	<td class='step-details'>Based on the Search, Customer Search result displays.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1ecf0446-5b8c-48c4-8274-de7e08464d1e'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_Back_to_Search_Criteria </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:27</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:27</td>
+																	<td class='step-details'>Enter First and Last Name of a customer and click on Search.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:27</td>
+																	<td class='step-details'>Based on the Search, Customer Search result should display.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:31</td>
+																	<td class='step-details'>System takes to Customer Search page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='40e597d9-df62-4543-9a20-6bba79a6d69b'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_invalid_Name_Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:33</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:33</td>
+																	<td class='step-details'>Click on 'Back to Search Criteria' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:33</td>
+																	<td class='step-details'>System should take to Customer Search page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:36</td>
+																	<td class='step-details'>Customer Search page shows'No customers found meeting this criteria' message.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='de0065f9-dffc-4f65-b0b8-da5a567aabf3'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Valid_Name_Search </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:38</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:38</td>
+																	<td class='step-details'>Enter invalid name in search fields and click search.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:38</td>
+																	<td class='step-details'>Customer Search page should show 'No customers found meeting this criteria' message.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:42</td>
+																	<td class='step-details'>Customer Search page shows'No customers found meeting this criteria' message.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='9529a5b5-4872-413a-b653-f83c4ee7014a'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Customer_Details_page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:27:44</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:44</td>
+																	<td class='step-details'>Again go back to Customer Search page and enter valid values and search.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:27:44</td>
+																	<td class='step-details'>Based on the search, Customer Search Result page should display correct result.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:27:59</td>
+																	<td class='step-details'>The Customer details page displayed and Back to Search Results, Request a Change, Preview Confirmation, accordions & Edit icon.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='60d2a222-896c-4ba1-a085-ab7ec990f5ff'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_Customer_Edit_page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:01</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:01</td>
+																	<td class='step-details'>Click on Customer   View Icon.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:01</td>
+																	<td class='step-details'>The Customer details page should open and should display Back to Search Results, Request a Change, Preview Confirmation, accordions & Edit icon.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:04</td>
+																	<td class='step-details'>Customer Edit Profile modal window displays.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='460371f8-c34e-4518-8e2b-aeac5dc7e05d'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_Edit_profile_First_last_name_change </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:06</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:06</td>
+																	<td class='step-details'>Click  on Customer Edit icon.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:06</td>
+																	<td class='step-details'>Customer Edit Profile modal window should display.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:10</td>
+																	<td class='step-details'>The modal Saved and closed and update in the Customer Search result page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1882af0c-4d11-4f23-8ba0-38a9c8ea6c78'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Auto_login </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:13</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:13</td>
+																	<td class='step-details'>Change First or Last Name and Save.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:13</td>
+																	<td class='step-details'>The modal should save and close and update in the Customer Search result page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:38</td>
+																	<td class='step-details'>System opened the registrant in separate tab and auto login.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c5886092-682d-4356-9619-87c72a0cba62'>
+											<div class='test-head'>
+												<span class='test-name'>Verify_Reset_Password </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:40</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:40</td>
+																	<td class='step-details'>Click on 'Auto-Login as Registrant' link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:40</td>
+																	<td class='step-details'>System should open the registrant in separate tab and auto login.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:43</td>
+																	<td class='step-details'>System sent reset password and shows Success message.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='29c72956-af61-474f-b1ed-fbc740cf68a4'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Request_a_Change </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:45</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:45</td>
+																	<td class='step-details'>Click on 'Reset Password' link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:45</td>
+																	<td class='step-details'>System should send and show Success message.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:48</td>
+																	<td class='step-details'>System sent and shows Success message.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='540027a8-3140-48d9-96c5-eaa2c69301c3'>
+											<div class='test-head'>
+												<span class='test-name'>verify_EmailID_Body_Send_change_Request </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:49</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:49</td>
+																	<td class='step-details'>Click on 'Request a Change' link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:49</td>
+																	<td class='step-details'>Request Change pop up should open and display email address with Send Change Request, Cancel button.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:28:53</td>
+																	<td class='step-details'>System sent email and show Success message.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='120dac1d-b442-49e3-b443-c9c22bc5c1f5'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Preview_Confirm </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:28:55</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:55</td>
+																	<td class='step-details'>Enter Email ID and Description in Body and 'Send Change Request' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:28:55</td>
+																	<td class='step-details'>System should send email and show Success message.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:03</td>
+																	<td class='step-details'>System opens 'View Confirmation' modal window with necessary details.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='4408da09-8849-422a-bab3-a0a995129767'>
+											<div class='test-head'>
+												<span class='test-name'>verify_preview_close </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:05</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:05</td>
+																	<td class='step-details'>Click on 'Preview Confirmation' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:05</td>
+																	<td class='step-details'>system should open 'View Confirmation' modal window with necessary details.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:07</td>
+																	<td class='step-details'>System closes the Preview Confirmation window.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='e063ec92-4503-4bd4-bd0b-a248dff8929c'>
+											<div class='test-head'>
+												<span class='test-name'>verify_all_accordions </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:09</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:09</td>
+																	<td class='step-details'>Click on 'Close' button on Preview Confirmation window.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:09</td>
+																	<td class='step-details'>System should close the Preview Confirmation window.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:14</td>
+																	<td class='step-details'>All accordions displays with necessary details without error.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='8cacf0ac-ad61-48f3-adf0-b0b26d5dc2d2'>
+											<div class='test-head'>
+												<span class='test-name'>verify_email_icon </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:16</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:16</td>
+																	<td class='step-details'>Click on all accordions in Customer Detail page.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:16</td>
+																	<td class='step-details'>All accordions should display necessary details without error.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:24</td>
+																	<td class='step-details'>System opens 'View Confirmation' modal window with necessary details.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='3cc06cad-467b-4118-9bf4-9ec6a60552ef'>
+											<div class='test-head'>
+												<span class='test-name'>verify_email_preview_close </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:26</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:26</td>
+																	<td class='step-details'>Click on Email Icon on Customer Search page.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:26</td>
+																	<td class='step-details'>System should open View Confirmation modal window and display the registrant details.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:28</td>
+																	<td class='step-details'>System closes the Preview Confirmation window and display Customer Search page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='f7f3064a-89c1-4c3a-a854-df670be62019'>
+											<div class='test-head'>
+												<span class='test-name'>verify_reset_password </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:30</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:30</td>
+																	<td class='step-details'>Click on 'Close' button on Preview Confirmation window.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:30</td>
+																	<td class='step-details'>System should close the Preview Confirmation window and display Customer Search page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:33</td>
+																	<td class='step-details'>System clears Search field values.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='91740dd5-9276-442d-a8cc-012a588513e4'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Report_page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:35</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:35</td>
+																	<td class='step-details'>Click on 'Customer Search Criteria' button.
+Click on 'Reset' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:35</td>
+																	<td class='step-details'>System should clear Search field values.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:41</td>
+																	<td class='step-details'>System opens Manage Report page and display different types of report.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b3fbf633-8144-4968-93c4-57884de5801c'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Report_templates_Count </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:43</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:43</td>
+																	<td class='step-details'>Click on 'Home' and select Manage Report.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:43</td>
+																	<td class='step-details'>System should open Manage Report page and display different types of report.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:50</td>
+																	<td class='step-details'>All 'Counts' reports should get filter</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='e3343880-1f28-4d73-b393-c22cb2c7857b'>
+											<div class='test-head'>
+												<span class='test-name'>verify_RegType_Report </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:51</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:51</td>
+																	<td class='step-details'>1. Click on Report Templates.
+2. Click on Counts.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:51</td>
+																	<td class='step-details'>All 'Counts' reports should get filter and display in Manage report page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:29:57</td>
+																	<td class='step-details'>Report view details page displays</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='8c2b8b93-17b9-4b20-bac3-1bf8fa6b8693'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExcelFormat </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:29:59</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:59</td>
+																	<td class='step-details'>Click on view Report details icon on 'RegType Count'  report.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:29:59</td>
+																	<td class='step-details'>Report view details report page should display 'Back To Manage Reports', Save As ,Save, Run & other buttons under options frame.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:00</td>
+																	<td class='step-details'>Report opened without error</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='127e4236-388e-40a2-a459-9d41ef3ce7d1'>
+											<div class='test-head'>
+												<span class='test-name'>verify_SaveAs </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:03</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:03</td>
+																	<td class='step-details'>Select Output type as Excel, paper size as Letter by default, Reg Type as 'Attendee'  and Member Type and click on Run button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:03</td>
+																	<td class='step-details'>The Report should open in Excel format.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:07</td>
+																	<td class='step-details'>Reg Type report saved and return to View Report details page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5d18b04d-78f6-4d58-97e1-14e84b856a7e'>
+											<div class='test-head'>
+												<span class='test-name'>verify_BackTo_Manage </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:11</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:11</td>
+																	<td class='step-details'>1. Click on Save As button and enter mandatory information.
+2. Click on Save button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:11</td>
+																	<td class='step-details'>The report should save and return on view details page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:13</td>
+																	<td class='step-details'>The Page navigates to Manage Reports..</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='9c677fa8-85d7-403b-b8b6-bf521caf48a5'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Saved_Report </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:15</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:15</td>
+																	<td class='step-details'>Click on Back to Manage Report button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:15</td>
+																	<td class='step-details'>The Page should navigate to Manage Reports.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:19</td>
+																	<td class='step-details'>The Saved report opened and displayed report details</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='ca645783-46d8-4d49-84cf-0770a6b25056'>
+											<div class='test-head'>
+												<span class='test-name'>verify_HotelInventoryReport </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:21</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:21</td>
+																	<td class='step-details'>1. Click on Saved report.
+2.Click on Run Report icon.
+3. Click on Open button in the popup.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:21</td>
+																	<td class='step-details'>Reg Type report should open and display the Registration details.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:27</td>
+																	<td class='step-details'>The Hotel Inventory report shows without error.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='a2f40096-079e-40e1-a9f1-2b1986a94e79'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Badging_Page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:29</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:29</td>
+																	<td class='step-details'>Click on Run button in Hotel Inventory Cross report.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:29</td>
+																	<td class='step-details'>The Hotel Inventory report shows without error.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:35</td>
+																	<td class='step-details'>System navigates to Badging page.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='868c1f3e-fa31-48fc-af93-264d6654e7ce'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Credentail_report </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:37</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:37</td>
+																	<td class='step-details'>Click on Home and click on Badging.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:37</td>
+																	<td class='step-details'>System should navigate to Credentials page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:39</td>
+																	<td class='step-details'>System runs Credentials and show PDF report</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c11004fd-d370-4cd4-b7e0-7046675e879a'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:41</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:41</td>
+																	<td class='step-details'>1. Select Folder - Badges, Report - Company.
+2. Select any Reg Types.
+3. Select Sort Order.
+4. Click on Run.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:41</td>
+																	<td class='step-details'>System should run Credentials and display in Separate tab.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:46</td>
+																	<td class='step-details'>System shows Analytics page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='631cb264-2e23-4b11-832b-51e4b8dd5f28'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Overview </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:47</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:47</td>
+																	<td class='step-details'>Click on Analytics tab.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:47</td>
+																	<td class='step-details'>Registration page should display with Overview, Timeline,Pacing, Maps & Totals and charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:52</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='77a142e1-d65b-4a9a-8266-98fbae5c7f70'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Pacing </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:30:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:54</td>
+																	<td class='step-details'>Click on Overview link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:30:54</td>
+																	<td class='step-details'>Overview page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:30:59</td>
+																	<td class='step-details'>System shows Analytics Pacing page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1a4c0efb-d9d1-4942-a808-bf6532d4f5b0'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Maps </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:00</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:00</td>
+																	<td class='step-details'>Click on Pacing link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:00</td>
+																	<td class='step-details'>Pacing page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:07</td>
+																	<td class='step-details'>System shows Analytics Maps page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='98e20690-4034-49e7-a79b-5ea0f5ecea7a'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Generate_Link </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:09</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:09</td>
+																	<td class='step-details'>Click on Maps link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:09</td>
+																	<td class='step-details'>Maps page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:13</td>
+																	<td class='step-details'>System shows Generate Link Popup</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='423ccdd6-c5bb-4ec5-922d-071c27a20187'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Email_Link </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:15</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:15</td>
+																	<td class='step-details'>Click on 'Generate Link to this page' icon.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:15</td>
+																	<td class='step-details'>A pop up should display with generated link.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:17</td>
+																	<td class='step-details'>System shows Generate Link Popup</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='73e14d59-4209-4be9-8716-a2be3cd036c4'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Reg_Send_Email </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:19</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:19</td>
+																	<td class='step-details'>Clcik on 'Email this link' on the pop up.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:19</td>
+																	<td class='step-details'>Send link pop up will display with relevant fields such as To(Email Address), CC(Email address), Reply To(Email Address), Subject, Message and URL.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:23</td>
+																	<td class='step-details'>Success message shows</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c08eec9d-6a1a-43b0-a4f8-da0db63030dd'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Session </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:27</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:27</td>
+																	<td class='step-details'>Click on Send Email.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:27</td>
+																	<td class='step-details'>Email should be sent to the email id's which are mentioned in the To and CC email addresses.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:31</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='261596ce-9dff-428e-929d-3ab5805f6562'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Session_Overview </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:33</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:33</td>
+																	<td class='step-details'>Click on Session link</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:33</td>
+																	<td class='step-details'>Session page should display with Overview,Timeline, Pacing, Maps & Totals and charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:38</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c849ced9-0e7e-4c4d-a298-cb73dc676610'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Session_Pacing </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:39</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:39</td>
+																	<td class='step-details'>Click on Overview link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:39</td>
+																	<td class='step-details'>Overview page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:44</td>
+																	<td class='step-details'>System shows Analytics Pacing page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1444c5fe-4a55-4233-8984-30cecd53f6ad'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Session_Maps </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:46</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:46</td>
+																	<td class='step-details'>Click on Pacing link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:46</td>
+																	<td class='step-details'>Pacing page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:52</td>
+																	<td class='step-details'>System shows Analytics Maps page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b189b587-b5c7-4739-84dd-b377c2d7e30e'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Housing </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:31:54</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:54</td>
+																	<td class='step-details'>Click on Maps link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:31:54</td>
+																	<td class='step-details'>Maps page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:31:59</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c1e54cb8-1d66-4fa4-aa0e-b0de48246ad3'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Housing_Overview </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:00</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:00</td>
+																	<td class='step-details'>Click on Housing link</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:00</td>
+																	<td class='step-details'>Housing page should display with Overview, Timeline,Pacing, Maps & Totals and charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:05</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='625fd35d-2942-48d1-b2cd-c54580439f45'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Housing_Pacing </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:07</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:07</td>
+																	<td class='step-details'>Click on Overview link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:07</td>
+																	<td class='step-details'>Overview page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:12</td>
+																	<td class='step-details'>System shows Analytics Pacing page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b5ecedcc-f8d9-4d82-b7da-631e660859af'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Housing_Maps </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:14</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:14</td>
+																	<td class='step-details'>Click on Pacing link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:14</td>
+																	<td class='step-details'>Pacing page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:19</td>
+																	<td class='step-details'>System shows Analytics Maps page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='31d7dbc3-7263-4df0-b9e1-709b61a297ac'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:21</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:21</td>
+																	<td class='step-details'>Click on Maps link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:21</td>
+																	<td class='step-details'>Maps page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:27</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='b1cb50f1-9b0f-42b3-96f0-371af26b955a'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Overview </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:28</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:28</td>
+																	<td class='step-details'>Click on Unified link</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:28</td>
+																	<td class='step-details'>Unified page should display with Overview, Timeline, Pacing,  Maps & Totals and charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:33</td>
+																	<td class='step-details'>System shows Analytics Overview page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='1031c3ea-0b5e-4a68-9587-bd47519b467d'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Pacing </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:35</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:35</td>
+																	<td class='step-details'>Click on Overview link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:35</td>
+																	<td class='step-details'>Overview page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:39</td>
+																	<td class='step-details'>System shows Analytics Pacing page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='7328893c-06cc-41cf-ac6a-8ea8061a4e06'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Maps </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:41</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:41</td>
+																	<td class='step-details'>Click on Pacing link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:41</td>
+																	<td class='step-details'>Pacing page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:47</td>
+																	<td class='step-details'>System shows Analytics Maps page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='be4835d0-8ff5-4bfd-b682-0f2d0e38609f'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Tour_Link </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:49</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:49</td>
+																	<td class='step-details'>Click on Maps link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:49</td>
+																	<td class='step-details'>Maps page should display all charts and graphs.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:32:55</td>
+																	<td class='step-details'>System shows Welcome Tour popups</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5d4bc869-81c1-4dc2-9fd9-8ce8f7db9449'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Tour_Next </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:32:57</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:57</td>
+																	<td class='step-details'>Click on Tour link on Unified Analytics Tab.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:32:57</td>
+																	<td class='step-details'>System should open a popup and display Quick guide with Next button.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:00</td>
+																	<td class='step-details'>System shows Previous button</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='8893da80-94e5-40fb-8104-55719daa8668'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_Tour_Close </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:01</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:01</td>
+																	<td class='step-details'>Click on Next button on each Tour popup.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:01</td>
+																	<td class='step-details'>Popup should take to next tour place.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:04</td>
+																	<td class='step-details'>System close the tour popup window</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='e48ed60f-9220-4fb5-baf4-7819ca0a8715'>
+											<div class='test-head'>
+												<span class='test-name'>verify_Analytics_Unified_RegType_Export </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:06</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:06</td>
+																	<td class='step-details'>Click on close Tour popup.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:06</td>
+																	<td class='step-details'>The popup should close and display Analytics page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:07</td>
+																	<td class='step-details'>System verified Reg Type</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='6c8f200c-570c-4efc-beee-a4d9a1747a3e'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_Page </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:08</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:08</td>
+																	<td class='step-details'>Click on Checked button and click on Export button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:08</td>
+																	<td class='step-details'>System should download excel sheet.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:13</td>
+																	<td class='step-details'>System shows ExSight Page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='44458cc3-1099-49bc-91b7-995031adce59'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_LeadPage </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:14</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:14</td>
+																	<td class='step-details'>Click on ExSIGHT tab.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:14</td>
+																	<td class='step-details'>By Default, Lead page should open and display all charts.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:15</td>
+																	<td class='step-details'>System shows Quick links report</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c97e6c97-4651-4826-a979-05fc3414d806'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_BoostPage </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:16</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:16</td>
+																	<td class='step-details'>Left side expand accordion and click all quick links.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:16</td>
+																	<td class='step-details'>Quick links should navigate to relevant page.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:21</td>
+																	<td class='step-details'>System shows Traffic Boost Configuration Page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='d16c2326-e2ea-400f-b8c9-967e3bc6b2d4'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_TrafficBoost_Save </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:22</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:22</td>
+																	<td class='step-details'>Click on Boost link.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:22</td>
+																	<td class='step-details'>Boost page should open and display 'Traffic Boost Menu' details by default.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:25</td>
+																	<td class='step-details'>Traffic Boost Saved and closed the popup box</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='5d731cae-4377-4406-8cb8-a788af3e85ef'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_CampaignPage </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:27</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:27</td>
+																	<td class='step-details'>Click on 'Save' button in Traffic Boost Configuration page.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:27</td>
+																	<td class='step-details'>Traffic Boost Configuration should Save and show Success message.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:31</td>
+																	<td class='step-details'>System shows Traffic Boost Templates Page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='13f72cc9-f7fc-44f9-ac9b-2f0f80f2a4fd'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_CampaignPage_Upload_Save </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:33</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:33</td>
+																	<td class='step-details'>Click on Campaign Templates link on left side.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:33</td>
+																	<td class='step-details'>Traffic Boost Templates page should open and display with Save button on bottom.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:35</td>
+																	<td class='step-details'>Traffic Boost Saved and closed the popup box</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='c3886f0e-68f5-4177-bf47-041c369afd45'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_Scheduled_Campaigns </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:38</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:38</td>
+																	<td class='step-details'>Click on 'Save' button.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:38</td>
+																	<td class='step-details'>Traffic Boost - Templates should Save and show success message.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:42</td>
+																	<td class='step-details'>System shows Traffic Boost Scheduled Campaigns Page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='58dad4b1-68cf-41e6-b442-c56f64b8fe42'>
+											<div class='test-head'>
+												<span class='test-name'>verify_ExSIGHT_Results </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:44</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'></span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'></span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:44</td>
+																	<td class='step-details'>Click on Scheduled Campaigns link  on left side.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:44</td>
+																	<td class='step-details'>Traffic Boost Scheduled page should open and display without error.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:47</td>
+																	<td class='step-details'>System shows Results page</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+										<li class='collection-item test displayed active pass ' extentid='6350e674-bede-4406-877b-8352c526219f'>
+											<div class='test-head'>
+												<span class='test-name'>verify_LogOut </span>
+												<span class='test-status label right outline capitalize pass'>pass</span>
+												<span class='category-assigned hide '></span>
+											</div>
+											<div class='test-body'>
+												<div class='test-info'>
+													<span title='Test started time' alt='Test started time' class='test-started-time label green lighten-1 text-white'>2019-10-15 08:33:49</span>
+													<span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-1 text-white'>2019-10-15 08:33:53</span>
+													<span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 4s+366ms</span>
+												</div>
+												<div class='test-desc'></div>
+												<div class='test-attributes'>
+												</div>
+												<div class='test-steps'>
+													<table class='bordered table-results'>
+														<thead>
+															<tr>
+																<th>Status</th>
+																<th>Timestamp</th>
+																<th>Details</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:49</td>
+																	<td class='step-details'>Click on Campaign Result link on left side.</td>
+																</tr>
+																<tr>
+																	<td class='status info' title='info' alt='info'><i class='mdi-action-info-outline'></i></td>
+																	<td class='timestamp'>08:33:49</td>
+																	<td class='step-details'>Result page should open and display 'Company Campaigns' details.</td>
+																</tr>
+																<tr>
+																	<td class='status pass' title='pass' alt='pass'><i class='mdi-action-check-circle'></i></td>
+																	<td class='timestamp'>08:33:51</td>
+																	<td class='step-details'>System logged out.</td>
+																</tr>
+														</tbody>
+													</table>
+													<ul class='collapsible node-list' data-collapsible='accordion'>
+													</ul>
+												</div>
+											</div>
+										</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id='test-details-wrapper' class='col _addedCell2'>
+					<div class='contents'>
+						<div class='card-panel details-view'>
+							<h5 class='details-name'></h5>
+							<div class='step-filters right'>
+								<span class='btn-floating btn-small waves-effect waves-light blue' status='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light green' status='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red' status='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red darken-4' status='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light red lighten-2' status='error' alt='error' title='error'><i class='mdi-alert-error'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light orange' alt='warning' status='warning' title='warning'><i class='mdi-alert-warning'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light cyan' status='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span>
+								<span class='btn-floating btn-small waves-effect waves-light grey darken-2' status='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span>
+							</div>
+							<div class='details-container'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /tests -->
+			
+			<!-- categories -->
+			<!-- /categories -->
+			
+			<!-- exceptions -->
+			<!-- /exceptions -->
+			
+			<!-- testrunner logs -->
+			<!-- /testrunner logs -->
+			
+		</div>
+		<!-- /container -->
+		
+		<!-- test dashboard counts setting -->
+		<div id='test-count-setting' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Configure Tests Count Setting</h5> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> 
+				<label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> 
+				<label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> 
+				<br> 
+				<input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> 
+				<label for='childNodes'>Child Tests Only</label> 
+			</div> 
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /test dashboard counts setting -->
+		
+		<!-- filter for step status -->
+		<div id='step-status-filter' class='modal bottom-sheet'> 
+			<div class='modal-content'> 
+				<h5>Select status</h5> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> 
+				<label for='step-dashboard-filter-pass'>Pass</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> 
+				<label for='step-dashboard-filter-fail'>Fail</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> 
+				<label for='step-dashboard-filter-fatal'>Fatal</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> 
+				<label for='step-dashboard-filter-error'>Error</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> 
+				<label for='step-dashboard-filter-warning'>Warning</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> 
+				<label for='step-dashboard-filter-skip'>Skipped</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> 
+				<label for='step-dashboard-filter-info'>Info</label> 
+				<br> 
+				<input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> 
+				<label for='step-dashboard-filter-unknown'>Unknown</label> 
+			</div>
+			<div class='modal-footer'> 
+				<a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> 
+			</div> 
+		</div>
+		<!-- /filter for step status -->
+		
+		<script src='https://cdn.rawgit.com/anshooarora/extentreports/6032d73243ba4fe4fb8769eb9c315d4fdf16fe68/cdn/extent.js' type='text/javascript'></script>
+
+		<script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script>
+		<script>
+				
+            
+                $(document).ready(function() {
+                    
+                });
+            
+        
+		</script>
+	</body>
+</html>
